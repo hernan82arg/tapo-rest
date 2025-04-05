@@ -34,8 +34,8 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=latest,enable={{ github.ref == 'refs/heads/main' }}
-            type=sha,enable={{ github.event_name == 'pull_request' }}
+            type=raw,value=latest,enable={{ isDefault }}
+            type=sha,enable={{ isPullRequest }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
