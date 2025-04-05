@@ -35,7 +35,7 @@ jobs:
           tags: |
             type=raw,value=latest,enable=true
             type=ref,event=pr
-            type=sha
+            type=sha,format=long
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -49,6 +49,6 @@ jobs:
           context: .
           file: Dockerfile.homelab
           push: true
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
