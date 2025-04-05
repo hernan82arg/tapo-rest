@@ -14,8 +14,6 @@ WORKDIR /usr/src/tapo-rest
 # Copy source files
 COPY . .
 
-RUN cargo --version
-
 # Build the application
 RUN cargo build --release
 
