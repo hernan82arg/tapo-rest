@@ -30,9 +30,6 @@ WORKDIR /app
 # Copy the binary from the builder stage
 COPY --from=builder /usr/src/tapo-rest/target/release/tapo-rest ./
 
-# Copy the devices.json file
-COPY devices.json ./
-
 # Create a non-root user
 RUN useradd -m -u 1000 tapo
 USER tapo
